@@ -1,7 +1,7 @@
 {
   "name": "sync-manager",
-  "version": "0.0.1",
-  "description": " synchronization manager for different distributed entities ",
+  "version": "1.0.1",
+  "description": " synchronization manager for different distributed entities",
   "main": "index.js",
   "scripts": {
     "test": "node test/tap_all.js"
