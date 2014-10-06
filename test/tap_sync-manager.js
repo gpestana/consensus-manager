@@ -1,23 +1,36 @@
 var test     = require('tape'),
 
-app          = require('express')(),
-server       = require('http').Server(app),
-io           = require('socket.io')(server),
-
-cio          = require('socket.io-client'),
+io          = require('socket.io-client'),
 SyncMmanager = require('../lib/sync_manager.js')
 
-//creates client attached to a given server
-function client(srv) {
-  var addr = srv.listen().address()
-  var url = 'ws://' + addr.address + ':' + addr.port + (nsp || '');
-  return ioc(url)
+var clients = []
+
+function connect_cli() {
+  var socket = io.connect('http://localhost:3000', {
+    'reconnection delay': 0,
+    'reopen delay': 0,
+    'force new connection': true
+  })
+
+  clients.push(socket)
+
+  socket.on('connect', function() {
+    console.log('client connected');
+  })
+  
+  socket.on('disconnect', function() {
+    console.log('client disconnected');
+  })
+
 }
 
+function discoinnect_cli(socket) {
+  if(socket.connected) socket.disconnect() 
+}
+
+
 test('constructor', function(t) {
-  server.listen(80)
-  //var cli_1 = client(server)  
-  
+  connect_cli() 
   t.end()
 
 }) 
