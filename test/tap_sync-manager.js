@@ -1,9 +1,23 @@
-var test     = require('tape'),
+var test      = require('tape'),
 
-io          = require('socket.io-client'),
-SyncMmanager = require('../lib/sync_manager.js')
+io                = require('socket.io-client'),
+SyncManager       = require('../lib/sync_manager.js'),
+SyncAll_str  = require('../strategies/sync_room.js')
 
-var clients = []
+/*
+ communication between server and clients
+for testing purposes is based on events.
+*/
+
+var server
+
+var opts = {'nr_res': 3}  
+var str = new SyncAll_str(opts, 'even')
+var sync_manager = new SyncManager(str)
+  
+
+
+
 
 function connect_cli() {
   var socket = io.connect('http://localhost:3000', {
@@ -24,13 +38,13 @@ function connect_cli() {
 
 }
 
-function discoinnect_cli(socket) {
+function disconnect_cli(socket) {
   if(socket.connected) socket.disconnect() 
 }
 
 
 test('constructor', function(t) {
-  connect_cli() 
+  
   t.end()
 
 }) 
