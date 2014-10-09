@@ -1,35 +1,32 @@
 {
-  "name": "sync-manager",
-  "version": "0.0.1",
-  "description": "synchronization manager for socket.io clients",
+  "name": "consensus-manager",
+  "version": "1.0.0",
+  "description": "consensus manager for a distributed topology",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node tape/tap_sync-manager.js"
+    "test": "node test/tests.js"
   },
 
   "dependencies": {
-    "socket.io": "~1.0.6" 
     },
   "devDependencies": {
-    "tape": "^2.13.4",
-    "socket.io-client": "^1.0.6",
-    "express": "~4.6.1"
+    "tape": "^2.13.4"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gpestana/sync-manager.git"
+    "url": "https://github.com/gpestana/consensus-manager.git"
   },
   "keywords": [
-    "socket.io",
-    "synchronization"
+    "consensus",
+    "distributed systems"
   ],
   "author": "gpestana",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gpestana/sync-manager/issues"
+    "url": "https://github.com/gpestana/consensus-manager/issues"
   },
-  "homepage": "https://github.com/gpestana/sync-manager"
+  "homepage": "https://github.com/gpestana/consensus-manager"
 }
