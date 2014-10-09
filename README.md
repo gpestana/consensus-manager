@@ -1,19 +1,22 @@
-##sync-manager
+##consensus-manager
 
-###sync manager for socket.io. syncs different entities depending on the strategy adopted.
+###consensus wrapper for a server-client or master-slaves remote topology
 
-ex: room is considered sync when half of the number of the room sent answered to the request
+The consensus manager listens and stores responses from remote peers until the
+consensus is reached. The consensus is reached depending on the strategy implemented.  
 
-###init 
-npm install sync-manager
-```javascript
-var SyncManager = require('sync-manager')(new StrategyA)
-```
 
-###sync request
-```javascript
-SyncManager.sync(opts, function(opts){
- //opts depends on strategy's output 
-}}
-```
+###example
+``javascript
 
+Strategy         = require('..strategies/minimum_str.js')
+ConsensusManager  = require('ConsensusManager') 
+
+var strategy = new Startegy(strategy_opts)  
+var consensus = new ConsensusManager(strategy)  
+
+
+//init consensus manager
+
+
+``

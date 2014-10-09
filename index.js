@@ -1,3 +1,3 @@
-var SyncManager = require('./lib/sync_manager.js')
+var ConsensusManager = require('./lib/ConsensusManager.js')
 
-exports.SyncManager = SyncManager
+exports.ConsensusManager = ConsensusMagaer
